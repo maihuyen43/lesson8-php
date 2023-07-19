@@ -2,7 +2,8 @@
 <?php
 require_once 'pdo.php';
 $id = $_GET['id'];
-$products = select($id);
+$getinf = new Query();
+$products = $getinf->select($id);
 ?>
 <!doctype html>
 <html lang="en">
@@ -22,7 +23,7 @@ $products = select($id);
         $i = 1; 
         foreach ($products as $product) : ?>
         
-                <form id="" action="./edit-product.php" method="post">
+                <form id="" action="./edit-car.php" method="post">
                     <input type="hidden" value="<?= $product['id'] ?>" name="id">
                 </form>
         <?php endforeach; 
@@ -31,7 +32,7 @@ $products = select($id);
 <div class="container mt-3">
     <div class="container-fluid"><h3>Edit Category</h3></div>
     <a href="./index.php" class="btn btn-primary">Back</a>
-    <form method="POST" action="./update.php">
+    <form method="POST" action="./edit-car.php">
         <div class="mb-3">
             <label for="" class="form-label">Name</label>
             <input type="hidden" value="<?= $id ?>" name="id">
@@ -39,7 +40,7 @@ $products = select($id);
             <label for="" class="form-label">Price</label>
             <input required type="text" class="form-control" name="price" value = "<?= $product['price'] ?>">
             <label for="" class="form-label">Category_id</label>
-            <input required type="text" class="form-control" name="ca_id" value = "<?= $product['ca_id'] ?>">
+            <input required type="text" class="form-control" name="ca_id" value = "<?= $product['category_id'] ?>">
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
     </form>

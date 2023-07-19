@@ -10,5 +10,6 @@ $category = [
     'ca_id' => $request['ca_id'],
 ];
 
-create($category);
+$getinf = new Query();
+    $products = $getinf->create($category);
 redirectHome();

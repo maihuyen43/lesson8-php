@@ -1,7 +1,14 @@
 <?php
+require_once 'pdo.php';
+require_once 'helper.php';
 
-require_once '../pdo.php';
-require_once '../helper.php';
+$request = $_POST;
 
-create(['name' => $_POST['name']]);
+$category = [
+    'name' => $request['name'],
+    'price' => $request['price'],
+    'ca_id' => $request['ca_id'],
+];
 
+create($category);
+redirectHome();

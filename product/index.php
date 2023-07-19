@@ -1,6 +1,7 @@
 <?php
     require_once 'pdo.php';
-    $products = all();
+    $getinf = new Query();
+    $products = $getinf->all();
 ?>
 
 <!doctype html>
@@ -17,7 +18,7 @@
 </head>
 <body>
 <div class="container mt-3">
-    <div class="container-fluid"><h3>List Category</h3></div>
+    <div class="container-fluid"><h3>List Product</h3></div>
     <a class="btn btn-success" href="./create.php">Create</a>
     <table class="table table-hover">
         <thead>
@@ -37,7 +38,7 @@
             <th scope="row"><?= $i++ ?></th>
             <td><?= $product['name'] ?></td>
             <td><?= $product['price'] ?></td>
-            <td><?= $product['ca_id'] ?></td>
+            <td><?= $product['category_id'] ?></td>
             <td>
                 <form id="delete_<?= $product['id'] ?>" action="./delete.php" method="post">
                     <input type="hidden" value="<?= $product['id'] ?>" name="id">

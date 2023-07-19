@@ -1,7 +1,10 @@
 <?php
 
-function redirectCategoryHome()
-{
-    header('Location: ../index.php');
-    exit();
+function redirect($url) {
+    header("Location: $url");
+    exit;
+}
+
+function redirectHome() {
+    redirect('index.php');
 }

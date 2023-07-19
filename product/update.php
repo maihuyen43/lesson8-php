@@ -10,5 +10,7 @@ $request = $_POST;
  $price = $request['price'];
  $ca_id = $request['ca_id'];
 
-update($name, $price, $ca_id, $id);
+// update($name, $price, $ca_id, $id);
+$getinf = new Query();
+$products = $getinf->update($name, $price, $ca_id, $id);
 redirectHome();

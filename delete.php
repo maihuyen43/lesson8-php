@@ -1,8 +1,10 @@
 <?php
 
-require_once '../pdo.php';
-require_once '../helper.php';
+require_once 'pdo.php';
+require_once 'helper.php';
 
-delete(['id' => $_POST['id']]);
+if ($_POST['id'] > 0 && is_numeric($_POST['id'])) {
+    delete(['id' => $_POST['id']]);
+}
 
-redirectCategoryHome();
+redirectHome();
